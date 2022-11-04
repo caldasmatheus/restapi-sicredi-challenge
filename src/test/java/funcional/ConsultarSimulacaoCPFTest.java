@@ -7,6 +7,7 @@ import static org.apache.http.HttpStatus.SC_NOT_FOUND;
 import static org.apache.http.HttpStatus.SC_OK;
 import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.Matchers.hasKey;
+import static spec.RequestSpecification.getSpec;
 
 public class ConsultarSimulacaoCPFTest {
 
@@ -14,8 +15,7 @@ public class ConsultarSimulacaoCPFTest {
     public void consultarSimulacaoCPFValido() {
         String cpf = "66414919004";
         given().
-            baseUri("http://localhost:8080/api").
-            basePath("/v1").
+            spec(getSpec()).
         when().
             get("simulacoes/" + cpf).
         then().

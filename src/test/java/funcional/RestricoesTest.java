@@ -7,14 +7,14 @@ import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.equalTo;
 import static org.apache.http.HttpStatus.SC_NO_CONTENT;
 import static org.apache.http.HttpStatus.SC_OK;
+import static spec.RequestSpecification.getSpec;
 
 public class RestricoesTest {
 
     @Test(dataProvider = "cpfComRestricao")
     public void consultarCPFSemRestricao(String cpfSemRestricao) {
         given().
-            baseUri("http://localhost:8080/api").
-            basePath("/v1").
+            spec(getSpec()).
         when().
             get("restricoes/" + cpfSemRestricao).
         then().
@@ -24,8 +24,7 @@ public class RestricoesTest {
     @Test(dataProvider = "cpfComRestricao")
     public void consultarCPFComRestricao(String cpfComRestricao) {
         given().
-            baseUri("http://localhost:8080/api").
-            basePath("/v1").
+            spec(getSpec()).
         when().
             get("restricoes/" + cpfComRestricao).
         then().
