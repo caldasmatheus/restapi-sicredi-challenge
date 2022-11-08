@@ -15,7 +15,7 @@ public class RemoverSimulacaoTest extends TestRule {
         given().
             spec(getSpec()).
         when().
-            delete("restricoes/12").
+            delete("simulacoes/12").
         then().
             statusCode(SC_NO_CONTENT);
     }
@@ -25,7 +25,7 @@ public class RemoverSimulacaoTest extends TestRule {
         given().
             spec(getSpec()).
         when().
-            delete("restricoes/1000").
+            delete("simulacoes/1000").
         then().
             statusCode(SC_NOT_FOUND).
             body("mensagem", equalTo("Simulação não encontrada"));
