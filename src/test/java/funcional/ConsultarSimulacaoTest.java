@@ -1,13 +1,14 @@
 package funcional;
 
 import org.testng.annotations.Test;
+import util.TestRule;
 
 import static io.restassured.RestAssured.given;
 import static org.apache.http.HttpStatus.SC_OK;
 import static org.hamcrest.Matchers.*;
 import static spec.RequestSpecification.getSpec;
 
-public class ConsultarSimulacaoTest {
+public class ConsultarSimulacaoTest extends TestRule {
 
     @Test
     public void consultarSimulacoes() {

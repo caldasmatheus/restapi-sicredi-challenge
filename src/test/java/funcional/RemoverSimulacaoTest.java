@@ -1,13 +1,14 @@
 package funcional;
 
 import org.testng.annotations.Test;
+import util.TestRule;
 
 import static io.restassured.RestAssured.given;
 import static org.apache.http.HttpStatus.*;
 import static org.hamcrest.Matchers.equalTo;
 import static spec.RequestSpecification.getSpec;
 
-public class RemoverSimulacaoTest {
+public class RemoverSimulacaoTest extends TestRule {
 
     @Test
     public void removerSimulacaoExistente() {

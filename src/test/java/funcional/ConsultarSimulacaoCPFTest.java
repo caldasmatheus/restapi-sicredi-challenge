@@ -1,6 +1,7 @@
 package funcional;
 
 import org.testng.annotations.Test;
+import util.TestRule;
 
 import static io.restassured.RestAssured.given;
 import static org.apache.http.HttpStatus.SC_NOT_FOUND;
@@ -9,7 +10,7 @@ import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.Matchers.hasKey;
 import static spec.RequestSpecification.getSpec;
 
-public class ConsultarSimulacaoCPFTest {
+public class ConsultarSimulacaoCPFTest extends TestRule {
 
     @Test
     public void consultarSimulacaoCPFValido() {
@@ -32,8 +33,7 @@ public class ConsultarSimulacaoCPFTest {
     public void consultarSimulacaoCPFInexistente() {
         String cpf = "12109723440";
         given().
-            baseUri("http://localhost:8080/api").
-            basePath("/v1").
+            spec(getSpec()).
         when().
             get("simulacoes/" + cpf).
         then().
